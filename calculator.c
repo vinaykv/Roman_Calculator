@@ -17,7 +17,5 @@ char* calculate(char roman_number1[50])
 
 {
 
-
-
-
+return roman_number1;
 }
