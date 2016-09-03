@@ -1,0 +1,14 @@
+/* 
+Roman calculator: performs addition and subtraction of roman values
+Author: Vinay vittal Karagod
+File dependents: main.c, calculator.h, calculator.c,calculator-test.check
+Date: 09/03/2016
+calculator-test.check: Test file used to pass the input values to calculate roman numbers.
+*/
+
+
+# include "calculator.h"
+
+#test calc
+
+ck_assert_msg(strcmp(calculate("I"),"I") == 0,"operation failed");
