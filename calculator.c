@@ -13,7 +13,7 @@ Date: 09/03/2016
 # include <stdlib.h>
 # include <string.h>
 
-int calculate(char roman_number1)
+int calculate(char roman_number1[50])
 
 {
 	int first_number = 0;
