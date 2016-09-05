@@ -17,7 +17,7 @@ int calculate(char roman_number1[50])
 
 {
 	int first_number = 0;
-	first_number = romanValue(roman_number1);
+	first_number = roman_decimal(roman_number1); // calling roman_decimal function to convert first roman number to decimal
 	return first_number;
 }
 
@@ -46,6 +46,42 @@ int romanValue(char r_Character)
 	}
 return value;
 }
+
+int roman_decimal(char number[])
+{
+
+	int index_value = 0;
+	int decnum = 0; // value to store the dicimal value 
+	while(number[index_value] == 'I' || number[index_value] == 'V' || number[index_value] == 'X' || number[index_value] == 'L'|| number[index_value] == 'C' || number[index_value] == 'D' || number[index_value] == 'M')
+	{
+
+		if(romanValue(number[index_value]) < 0) // condition to check the invalid numbers
+		{
+			printf("%d",romanValue(number[index_value]));
+			printf("Invalid roman digit : %c",number[index_value]);
+			exit(0);
+		}
+		if((strlen(number) - index_value) > 2)
+		{
+			if(romanValue(number[index_value]) < romanValue(number[index_value+2])){
+				printf("Invalid roman number");
+				exit(0);
+			}
+		}
+
+		if(romanValue(number[index_value]) >= romanValue(number[index_value+1])) // reading each roman from the string
+			decnum = decnum + romanValue(number[index_value]);
+		else{
+			decnum = decnum + (romanValue(number[index_value+1]) - romanValue(number[index_value]));
+			index_value++;
+		}
+	index_value++;
+}
+
+return decnum;
+}
+
+
 
 
 

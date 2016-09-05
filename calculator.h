@@ -11,5 +11,6 @@ Date: 09/03/2016
 
 int calculate(char roman_number1[50]);
 int romanValue(char r_Character);
+int roman_decimal(char number[]);
 
 #endif
