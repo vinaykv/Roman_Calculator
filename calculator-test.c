@@ -21,7 +21,8 @@ START_TEST(calc)
 {
 #line 13
 
-ck_assert_msg(strcmp(calculate("I"),"1") == 0,"operation failed");
+//ck_assert_msg(strcmp(calculate("I"),"1") == 0,"operation failed");
+ck_assert_msg(calculate("I") == 1,"operation failed");
 }
 END_TEST
 
