@@ -10,5 +10,6 @@ Date: 09/03/2016
 #define calculator_H
 
 char* calculate(char roman_number1[50]);
+int romanValue(char r_Character);
 
 #endif

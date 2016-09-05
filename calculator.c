@@ -16,6 +16,40 @@ Date: 09/03/2016
 char* calculate(char roman_number1[50])
 
 {
+	int first_number;
 
-return roman_number1;
+
+
+first_number = romanValue(roman_number1);
+
+return first_number;
 }
+
+
+int romanValue(char r_Character)
+{
+	int value=0;
+	switch(r_Character){
+	case 'I': value = 1; 
+	break;
+	case 'V': value = 5; 
+	break;
+	case 'X': value = 10; 
+	break;
+	case 'L': value = 50; 
+	break;
+	case 'C': value = 100; 
+	break;
+	case 'D': value = 500; 
+	break;
+	case 'M': value = 1000; 
+	break;	
+	case '\0': value = 0; 
+	break;
+	default: value = -1;
+	}
+return value;
+}
+
+
+

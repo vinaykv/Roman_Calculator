@@ -11,4 +11,4 @@ calculator-test.check: Test file used to pass the input values to calculate roma
 
 #test calc
 
-ck_assert_msg(strcmp(calculate("I"),"I") == 0,"operation failed");
+ck_assert_msg(strcmp(calculate("I"),"1") == 0,"operation failed");
