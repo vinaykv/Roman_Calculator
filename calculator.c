@@ -13,16 +13,12 @@ Date: 09/03/2016
 # include <stdlib.h>
 # include <string.h>
 
-char* calculate(char roman_number1[50])
+int calculate(char roman_number1)
 
 {
-	int first_number;
-
-
-
-first_number = romanValue(roman_number1);
-
-return first_number;
+	int first_number = 0;
+	first_number = romanValue(roman_number1);
+	return first_number;
 }
 
 

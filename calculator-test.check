@@ -10,6 +10,6 @@ calculator-test.check: Test file used to pass the input values to calculate roma
 # include "calculator.h"
 
 #test calc
-
-//ck_assert_msg(strcmp(calculate("I"),"1") == 0,"operation failed");
-ck_assert_msg(calculate("I") == 1,"operation failed");
+//printf("first number:= %d ",calculate("I"));
+//ck_assert_msg(strcmp(calculate('I'),'1') == 0,"operation failed");
+ck_assert_msg(calculate('I') == 1,"operation failed");
