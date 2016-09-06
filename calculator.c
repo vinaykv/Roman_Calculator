@@ -20,8 +20,8 @@ int calculate(char roman_number1[50],char roman_number2[50],char option[10])
 	int sum = 0,sub = 0;
 	first_number = roman_decimal(roman_number1); // calling roman_decimal function to convert first roman number to decimal
 	second_number = roman_decimal(roman_number2); // calling roman_decimal function to convert second roman number to decimal
-	//first_number = roman_decimal(roman_number1); // calling roman_decimal function to convert first roman number to decimal
-	return first_number;
+	
+	
 
 if(strcmp(option,"ADD") == 0)
 	{

@@ -23,6 +23,7 @@ START_TEST(calc)
 
 //ck_assert_msg(strcmp(calculate("II","II"),'1') == 0,"operation failed");
 ck_assert_msg(calculate("III","II","ADD") == 5,"operation failed");
+ck_assert_msg(calculate("III","II","SUBTRACT") == 1,"operation failed");
 }
 END_TEST
 
