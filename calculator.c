@@ -6,20 +6,17 @@
 # include <stdlib.h>
 # include <string.h>
 
-//int roman_index = 0; // index to hold the position of the roman digits 
-//char roman_num[50]; // to hold the digits of the roman digits
-
-// Function to recieve the inputs
+// Function to receive the inputs
 char* calculate(char roman_number1[50],char roman_number2[50], char option[10],char* buffer)
 {
 
 	int first_number, second_number; // to store roman values
-	int sum = 0, sub = 0;// initilizing the addition and subtraction value
+	int sum = 0, sub = 0;// initializing the addition and subtraction value
 	first_number = roman_decimal(roman_number1); // calling roman_decimal function to convert first roman number to decimal
 	second_number = roman_decimal(roman_number2); // calling roman_decimal function to convert second roman number to decimal
 	char * answer; // to store the final result
 
-	if(strcmp(option,"ADD") == 0)
+	if(strcmp(option,"ADD") == 0) // check for the addition operation
 	{
 		sum =  first_number + second_number;
 		if(sum > 3999)
@@ -30,7 +27,7 @@ char* calculate(char roman_number1[50],char roman_number2[50], char option[10],c
 		else
 			answer = decimal_roman(sum,buffer);
 	}
-	else if(strcmp(option,"SUBTRACT") == 0)
+	else if(strcmp(option,"SUBTRACT") == 0) // check for the subtraction operation
 	{
 		sub = first_number - second_number;
 		if(sub > 3999)
@@ -40,15 +37,15 @@ char* calculate(char roman_number1[50],char roman_number2[50], char option[10],c
 		}
 		else				
 			answer = decimal_roman(abs(sub),buffer); 
+		/*Note: As there are no negative numbers considering the absolute value of the negative number to obtain the negative number*/
 	}
 	else
 	{
-	printf("Invalid option \n");	
-	exit(0);	
+		printf("Invalid option \n");	
+		exit(0);	
 	}	
-return answer;
+	return answer;
 }
-
 
 // to convert each roman number to decimal number
 int romanValue(char r_Character)
@@ -73,7 +70,6 @@ int romanValue(char r_Character)
 	break;
 	default: value = -1;
 	}
-
 	return value;
 }
 
@@ -82,17 +78,14 @@ int roman_decimal(char number[])
 {
 	int index_value = 0;
 	int decnum = 0; // value to store the dicimal value 
-
 	while(number[index_value] == 'I' || number[index_value] == 'V' || number[index_value] == 'X' || number[index_value] == 'L'|| number[index_value] == 'C' || number[index_value] == 'D' || number[index_value] == 'M')
 	{
-
 		if(romanValue(number[index_value]) < 0) // condition to check the invalid numbers
 		{
 			printf("%d",romanValue(number[index_value]));
 			printf("Invalid roman digit : %c",number[index_value]);
 			exit(0);
 		}
-
 		if((strlen(number) - index_value) > 2)
 		{
 			if(romanValue(number[index_value]) < romanValue(number[index_value+2])){
@@ -100,8 +93,6 @@ int roman_decimal(char number[])
 				exit(0);
 			}
 		}
-
-
 		if(romanValue(number[index_value]) >= romanValue(number[index_value+1])) // reading each roman from the string
 			decnum = decnum + romanValue(number[index_value]);
 		else{
@@ -109,21 +100,21 @@ int roman_decimal(char number[])
 			index_value++;
 		}
 		index_value++;
-
 	}
 	return decnum;
 }
 
-char* predigits(char character1,char character2,char* buffer)// storing the predigits for example: 40 has to be stored as XL 
+// storing the predigits for example: 40 has to be stored as XL 
+char* predigits(char character1,char character2,char* buffer)
 {
 	*buffer = character1;
 	buffer++;
 	*buffer = character2;
 	buffer++;
-
-return buffer;
+	return buffer;
 }
 
+//storing the post digits
 char* postdigits(char character,int count,char* buffer)
 {
 	int loop;
@@ -131,18 +122,15 @@ char* postdigits(char character,int count,char* buffer)
 		*buffer = character;
 		buffer++;
 	}
-return buffer;
+	return buffer;
 }
-
 
 //Function to convert back the decimal number to roman number
 char* decimal_roman(int total,char* buffer)
 {
-
 	char *roman_num = buffer;
 	while(total !=0)
 	{
-
 		if(total >= 1000){ // converstion for 1000
 			buffer = postdigits('M',total/1000,buffer);
 			total = total - (total/1000) * 1000;

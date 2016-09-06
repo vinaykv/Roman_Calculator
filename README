@@ -1,1 +1,20 @@
 C program to perform roman addition and roman subtraction
+
+Instruction to run the program:
+ 1) chmod u+x test.sh (Use this command only for the first time)
+ 2) ./test.sh
+
+ck_assert_msg(strcmp(calculate(input1 , input2, ADD/SUBTRACT, buffer(holds the output)),output expected) == 0,"operation failed");
+
+ck_assert_msg(strcmp(calculate("M","D","ADD",buffer),"MD") == 0,"operation failed");	
+
+sample output:
+
+vinay@ubuntu:~/Roman_Calculator$ ./test.sh
+gcc -Wall -c calculator-test.c
+gcc -Wall -c calculator.c
+gcc -o calc-test calculator.o calculator-test.o -lcheck -lpthread -lm -lrt
+./calc-test
+Running suite(s): Core
+100%: Checks: 1, Failures: 0, Errors: 0
+
