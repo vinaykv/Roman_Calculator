@@ -12,8 +12,8 @@ Date: 09/03/2016
 char* calculate(char roman_number1[50],char roman_number2[50],char option[10]);
 int romanValue(char r_Character);
 int roman_decimal(char number[]);
-void predigits(char character1,char character2);
-void postdigits(char character,int count);
+void predigits(char character1,char character2,char *roman_num,int *roman_index);
+void postdigits(char character,int count,char *roman_num,int *roman_index);
 char* decimal_roman(int total);
 
 #endif
