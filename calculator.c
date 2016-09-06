@@ -13,12 +13,45 @@ Date: 09/03/2016
 # include <stdlib.h>
 # include <string.h>
 
-int calculate(char roman_number1[50])
+int calculate(char roman_number1[50],char roman_number2[50],char option[10])
 
 {
-	int first_number = 0;
+	int first_number = 0,second_number = 0;
+	int sum = 0,sub = 0;
 	first_number = roman_decimal(roman_number1); // calling roman_decimal function to convert first roman number to decimal
+	second_number = roman_decimal(roman_number2); // calling roman_decimal function to convert second roman number to decimal
+	//first_number = roman_decimal(roman_number1); // calling roman_decimal function to convert first roman number to decimal
 	return first_number;
+
+if(strcmp(option,"ADD") == 0)
+	{
+	sum =  first_number+ second_number;
+		if(sum > 3999)
+		{
+			printf("Number exceeds the maximum limit \n");
+			exit(0);
+		}
+		else
+		return sum;
+	}
+	else if(strcmp(option,"SUBTRACT") == 0)
+	{
+		sub = first_number - second_number;
+		if(sub > 3999)
+		{
+			printf("Number exceeds the maximum limit \n");
+			exit(0);
+		}
+		else
+		return sub;
+	}
+	else
+	{
+		printf("Invalid option \n");	
+		exit(0);	
+	}
+
+
 }
 
 

@@ -22,7 +22,7 @@ START_TEST(calc)
 #line 13
 
 //ck_assert_msg(strcmp(calculate("II","II"),'1') == 0,"operation failed");
-ck_assert_msg(calculate("III") == 3,"operation failed");
+ck_assert_msg(calculate("III","II","ADD") == 5,"operation failed");
 }
 END_TEST
 

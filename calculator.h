@@ -9,7 +9,7 @@ Date: 09/03/2016
 #ifndef calculator_H
 #define calculator_H
 
-int calculate(char roman_number1[50]);
+int calculate(char roman_number1[50],char roman_number2[50],char option[10]);
 int romanValue(char r_Character);
 int roman_decimal(char number[]);
 
