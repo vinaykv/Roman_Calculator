@@ -17,11 +17,12 @@ calculator-test.check: Test file used to pass the input values to calculate roma
 
 # include "calculator.h"
 
+char buffer[50];
 START_TEST(calc)
 {
-#line 13
+#line 14
 
-ck_assert_msg(strcmp(calculate("M","D","ADD"),"MD") == 0,"operation failed");
+ck_assert_msg(strcmp(calculate("M","D","ADD",buffer),"MD") == 0,"operation failed");
 //ck_assert_msg(calculate("III","II","ADD") == 5,"operation failed");
 //ck_assert_msg(calculate("III","II","SUBTRACT") == 1,"operation failed");
 //ck_assert_msg(strcmp(decimal_roman(1000),"M") == 0,"operation failed");

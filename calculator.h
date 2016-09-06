@@ -9,11 +9,11 @@ Date: 09/03/2016
 #ifndef calculator_H
 #define calculator_H
 
-char* calculate(char roman_number1[50],char roman_number2[50],char option[10]);
+char* calculate(char roman_number1[50],char roman_number2[50],char option[10],char* buffer);
 int romanValue(char r_Character);
 int roman_decimal(char number[]);
-void predigits(char character1,char character2,char *roman_num,int *roman_index);
-void postdigits(char character,int count,char *roman_num,int *roman_index);
-char* decimal_roman(int total);
+char* predigits(char character1,char character2,char* buffer);
+char* postdigits(char character,int count,char* buffer);
+char* decimal_roman(int total,char* buffer);
 
 #endif
