@@ -11,7 +11,7 @@ calculator-test.check: Test file used to pass the input values to calculate roma
 
 #test calc
 
-//ck_assert_msg(strcmp(calculate("II","II"),"4") == 0,"operation failed");
+ck_assert_msg(strcmp(calculate("II","II","ADD"),"4") == 0,"operation failed");
 //ck_assert_msg(calculate("III","II","ADD") == 5,"operation failed");
 //ck_assert_msg(calculate("III","II","SUBTRACT") == 1,"operation failed");
-ck_assert_msg(strcmp(decimal_roman(1000),"M") == 0,"operation failed");
+//ck_assert_msg(strcmp(decimal_roman(1000),"M") == 0,"operation failed");

@@ -21,10 +21,10 @@ START_TEST(calc)
 {
 #line 13
 
-//ck_assert_msg(strcmp(calculate("II","II"),"4") == 0,"operation failed");
+ck_assert_msg(strcmp(calculate("II","II","ADD"),"4") == 0,"operation failed");
 //ck_assert_msg(calculate("III","II","ADD") == 5,"operation failed");
 //ck_assert_msg(calculate("III","II","SUBTRACT") == 1,"operation failed");
-ck_assert_msg(strcmp(decimal_roman(1000),"M") == 0,"operation failed");
+//ck_assert_msg(strcmp(decimal_roman(1000),"M") == 0,"operation failed");
 }
 END_TEST
 
