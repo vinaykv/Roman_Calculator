@@ -13,6 +13,9 @@ Date: 09/03/2016
 # include <stdlib.h>
 # include <string.h>
 
+int roman_index = 0; // index to hold the position of the roman digits 
+char roman_num[50]; // to hold the digits of the roman digits
+
 int calculate(char roman_number1[50],char roman_number2[50],char option[10])
 
 {
@@ -113,6 +116,41 @@ int roman_decimal(char number[])
 
 return decnum;
 }
+
+void predigits(char character1,char character2)// storing the predigits for example: 40 has to be stored as XL 
+{
+	roman_num[roman_index++] = character1;
+	roman_num[roman_index++] = character2;
+
+}
+void postdigits(char character,int count)
+{
+	    int loop;
+	    for(loop=0;loop<count;loop++)
+	    roman_num[roman_index++] = character;
+}
+
+char* decimal_roman(int total)
+	{
+	while(total != 0)
+	{
+		if(total >= 1000){ // converstion for 1000
+	      	postdigits('M',total/1000);
+             	total = total - (total/1000) * 1000;
+         	}
+      		else if(total >=500){ // conversion for 500
+             		if(total < (500 + 4 * 100)){
+                 	postdigits('D',total/500);
+                 	total = total - (total/500) * 500;		
+		}
+	    }
+	}
+	//roman_num[roman_index++] = '\0';
+        //roman_index = 0; // resetting the index
+       return roman_num;	
+}
+
+
 
 
 
