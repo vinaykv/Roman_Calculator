@@ -11,7 +11,9 @@ calculator-test.check: Test file used to pass the input values to calculate roma
 
 char buffer[50];
 #test calc
-
+ck_assert_msg(romanValue('M') == 1000,"operation failed");
+ck_assert_msg(roman_decimal("MD") == 1500,"operation failed");
+ck_assert_msg(strcmp(decimal_roman(1500,buffer),"MD") == 0,"operation failed");
 ck_assert_msg(strcmp(calculate("M","D","ADD",buffer),"MD") == 0,"operation failed");
 ck_assert_msg(strcmp(calculate("M","D","SUBTRACT",buffer),"D") == 0,"operation failed");
 
