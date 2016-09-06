@@ -44,7 +44,8 @@ char* calculate(char roman_number1[50],char roman_number2[50], char option[10],c
 		}
 		else				
 			answer = decimal_roman(abs(sub),buffer); 
-		/*Note: As there are no negative numbers considering the absolute value of the negative number to obtain the negative number*/
+		/*Note: As there are no negative numbers in roman 
+		  considering the absolute value of the negative number*/
 	}
 	else
 	{
