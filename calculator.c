@@ -6,8 +6,8 @@
 # include <stdlib.h>
 # include <string.h>
 
-int roman_index = 0; // index to hold the position of the roman digits 
-char roman_num[50]; // to hold the digits of the roman digits
+//int roman_index = 0; // index to hold the position of the roman digits 
+//char roman_num[50]; // to hold the digits of the roman digits
 
 // Function to recieve the inputs
 char* calculate(char roman_number1[50],char roman_number2[50], char option[10])
@@ -114,89 +114,99 @@ int roman_decimal(char number[])
 	return decnum;
 }
 
-void predigits(char character1,char character2)// storing the predigits for example: 40 has to be stored as XL 
+void predigits(char character1,char character2,char *roman_num,int *roman_index)// storing the predigits for example: 40 has to be stored as XL 
 {
-	roman_num[roman_index++] = character1;
-	roman_num[roman_index++] = character2;
+	(*roman_index)++;
+	*(roman_num+(*roman_index)) = character1;
+	(*roman_index)++;
+	*(roman_num+(*roman_index)) = character2;
+	//roman_num[roman_index++] = character1;
+	//roman_num[roman_index++] = character2;
 
 }
 
-void postdigits(char character,int count)
+void postdigits(char character,int count,char *roman_num,int *roman_index)
 {
 	int loop;
-	for(loop=0;loop<count;loop++)
-		roman_num[roman_index++] = character;
+	for(loop=0;loop<count;loop++){
+		(*roman_index)++;
+		*(roman_num+(*roman_index)) = character;
+		}
+		//roman_num[roman_index++] = character;
 }
 
 
 //Function to convert back the decimal number to roman number
 char* decimal_roman(int total)
 {
+	int roman_index = 0; // index to hold the position of the roman digits 
+	char roman_num[50]; // to hold the digits of the roman digits
+
 	while(total !=0)
 	{
 
 		if(total >= 1000){ // converstion for 1000
-			postdigits('M',total/1000);
+			postdigits('M',total/1000,&roman_num,&roman_index);
 			total = total - (total/1000) * 1000;
 		}
 		else if(total >=500){ // conversion for 500
 			if(total < (500 + 4 * 100)){
-				postdigits('D',total/500);
+				postdigits('D',total/500,&roman_num,&roman_index);
 				total = total - (total/500) * 500;
 			}
 			else{
-				predigits('C','M');
+				predigits('C','M',&roman_num,&roman_index);
 				total = total - (1000-100);
 			}
 		}
 		else if(total >=100){ // conversion for 100
 			if(total < (100 + 3 * 100)){
-				postdigits('C',total/100);
+				postdigits('C',total/100,&roman_num,&roman_index);
 				total = total - (total/100) * 100;
 			}
 			else{
-				predigits('L','D');
+				predigits('L','D',&roman_num,&roman_index);
 				total = total - (500-100);
 			}
 		}
 		else if(total >=50){ // conversion for 50
 			if(total < (50 + 4 * 10)){
-				postdigits('L',total/50);
+				postdigits('L',total/50,&roman_num,&roman_index);
 				total = total - (total/50) * 50;
 			}
 			else{
-				predigits('X','C');
+				predigits('X','C',&roman_num,&roman_index);
 				total = total - (100-10);
 			}
 		}
 		else if(total >=10){ //conversion for 10
 			if(total < (10 + 3 * 10)){
-				postdigits('X',total/10);
+				postdigits('X',total/10,&roman_num,&roman_index);
 				total = total - (total/10) * 10;
 			}
 			else{
-				predigits('X','L');
+				predigits('X','L',&roman_num,&roman_index);
 				total = total - (50-10);
 			}
 		}
 		else if(total >=5){ //conversion for 5
 			if(total < (5 + 4 * 1)){
-				postdigits('V',total/5);
+				postdigits('V',total/5,&roman_num,&roman_index);
 				total = total - (total/5) * 5;
 			}
 			else{
-				predigits('I','X');
+				predigits('I','X',&roman_num,&roman_index);
 				total = total - (10-1);
 			}
 		}
 		else if(total >=1){ // conversion for 1
 			if(total < 4)
 			{
-				postdigits('I',total/1);
+				postdigits('I',total/1,&roman_num,&roman_index);
 				total = total - (total/1) * 1;
 			}
 			else{
-				predigits('I','V');
+				predigits('I','V',&roman_num,&roman_index);
 				total = total - (5-1);
 			}
 		}
